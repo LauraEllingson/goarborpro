@@ -38,6 +38,16 @@
   </header>
 
   <main class="container mx-auto px-4 py-8">
+<script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <article class="lead-article lg:col-span-2 bg-white shadow rounded p-6">
         <a href="posts/post1.html">
