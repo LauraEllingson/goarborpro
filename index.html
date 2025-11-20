@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>2407 Services</title>
@@ -11,7 +13,8 @@
 	<nav class="bg-white shadow-lg mb-8 sticky top-0 z-40">
 		<div class="w-full pl-4 md:pl-8 pr-4 md:pr-8 py-4 flex flex-row items-center justify-center gap-8">
 				<a href="/" class="flex items-center gap-2 flex-grow">
-					<span class="text-green-700 font-extrabold text-3xl tracking-tight">2407 Services</span>
+					<span class="text-green-700 font-extrabold text-3xl tracking-tight">2407 SERVICES</span>
+					<span class="block text-green-600 font-semibold text-base tracking-wide mt-1">Certified Arborist</span>
 				</a>
 				<button id="nav-toggle" class="md:hidden text-green-700 focus:outline-none" aria-label="Open menu">
 					<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -90,22 +93,47 @@
 					</section>
 					<!-- Services Overview -->
 								<section id="services" class="max-w-6xl mx-auto px-6 pt-1 pb-2">
-							<h2 class="text-3xl font-bold text-green-800 mb-8 text-left">Our Services</h2>
+							<h2 class="text-3xl font-bold text-green-800 mb-8 text-left">OUR SERVICES</h2>
 						<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 							<div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-							<img src="/assets/images/tree.svg" alt="Tree Service" class="w-24 h-24 mb-2 object-cover">
-								<span class="font-semibold text-lg mb-2">Tree Services</span>
-								<p class="text-base text-gray-600 text-center">Trimming, removal, and care for healthy trees and safe properties.</p>
+							<!-- Tree Icon -->
+							<span class="fa-solid fa-tree" style="font-size:48px; color:#22c55e; margin-bottom:0.5rem;"></span>
+								<span class="font-semibold text-lg mb-2">Tree Care</span>
+								<ul class="text-base text-gray-600 text-left space-y-1 mb-2">
+														<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span><span class="text-green-500 font-bold">Certified Arborist</span></li>
+										<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>Trimming & Pruning</li>
+										<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>Tree Removal</li>
+										<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>Stump Grinding</li>
+										<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>Emergency Service</li>
+								</ul>
 							</div>
 							<div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-							<img src="/assets/images/landscaping.svg" alt="Landscaping" class="w-24 h-24 mb-2 object-cover">
+							<!-- Lawn Mower Icon -->
+							<span class="material-icons" style="font-size:48px; color:#22c55e; margin-bottom:0.5rem;">park</span>
 								<span class="font-semibold text-lg mb-2">Landscaping</span>
-								<p class="text-base text-gray-600 text-center">Design, installation, and maintenance for beautiful outdoor spaces.</p>
+								<ul class="text-base text-gray-600 text-left space-y-1 mb-2">
+									<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>Design & Installation</li>
+									<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>Maintenance</li>
+									<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>Mulching & Edging</li>
+									<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>Planting & Sod</li>
+									<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>Seasonal Cleanup</li>
+								</ul>
 							</div>
 							<div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-							<img src="/assets/images/irrigation.svg" alt="Irrigation" class="w-24 h-24 mb-2 object-cover">
+							<!-- Water Droplets Icon -->
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mb-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3.5C12 3.5 7 10 7 13.5a5 5 0 0010 0C17 10 12 3.5 12 3.5z" />
+								<circle cx="9" cy="18" r="1.5" fill="currentColor" />
+								<circle cx="15" cy="18" r="1.5" fill="currentColor" />
+							</svg>
 								<span class="font-semibold text-lg mb-2">Irrigation</span>
-								<p class="text-base text-gray-600 text-center">Efficient irrigation systems for lush, sustainable landscapes.</p>
+								<ul class="text-base text-gray-600 text-left space-y-1 mb-2">
+									<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>System Design</li>
+									<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>Installation</li>
+									<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>Maintenance & Repair</li>
+									<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>Smart Controllers</li>
+									<li class="flex items-center"><span class="text-green-600 mr-2">&#10003;</span>Water Conservation</li>
+								</ul>
 							</div>
 						</div>
 					</section>
