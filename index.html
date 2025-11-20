@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ArborPro Tree Services</title>
+	<link href="/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-900">
+	<header class="flex flex-col items-center py-8">
+		<h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-green-700">ARBORPRO</h1>
+		<!-- Subtitle removed as requested -->
+	</header>
+	<section class="w-full max-w-3xl mx-auto mb-8">
+		<!-- Hero Carousel -->
+		<div class="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
+			<div class="absolute inset-0 flex transition-all duration-700" id="carousel-images">
+				<img src="/assets/hero1.jpg" alt="Tree Service" class="w-full h-full object-cover" style="display:block;">
+				<img src="/assets/hero2.jpg" alt="Landscaping" class="w-full h-full object-cover hidden">
+				<img src="/assets/hero3.jpg" alt="Irrigation" class="w-full h-full object-cover hidden">
+			</div>
+			<button id="prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-opacity-100">&#8592;</button>
+			<button id="next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-opacity-100">&#8594;</button>
+		</div>
+		<script>
+			// Simple JS for carousel
+			const images = document.querySelectorAll('#carousel-images img');
+			let current = 0;
+			function show(idx) {
+				images.forEach((img, i) => img.classList.toggle('hidden', i !== idx));
+			}
+			document.getElementById('prev').onclick = () => {
+				current = (current - 1 + images.length) % images.length;
+				show(current);
+			};
+			document.getElementById('next').onclick = () => {
+				current = (current + 1) % images.length;
+				show(current);
+			};
+			show(current);
+		</script>
+	</section>
+	<section class="max-w-3xl mx-auto mb-8">
+		<h2 class="text-xl font-bold mb-4 text-green-800">Our Services</h2>
+		<ul class="grid grid-cols-1 md:grid-cols-3 gap-6">
+			<li class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
+				<img src="/assets/tree-service.jpg" alt="Tree Service" class="w-20 h-20 mb-2 rounded-full object-cover">
+				<span class="font-semibold">Tree Services</span>
+				<p class="text-sm text-gray-600">Commercial & Residential tree trimming, removal, and care.</p>
+			</li>
+			<li class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
+				<img src="/assets/landscaping.jpg" alt="Landscaping" class="w-20 h-20 mb-2 rounded-full object-cover">
+				<span class="font-semibold">Landscaping</span>
+				<p class="text-sm text-gray-600">Design, installation, and maintenance for beautiful outdoor spaces.</p>
+			</li>
+			<li class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
+				<img src="/assets/irrigation.jpg" alt="Irrigation" class="w-20 h-20 mb-2 rounded-full object-cover">
+				<span class="font-semibold">Irrigation</span>
+				<p class="text-sm text-gray-600">Efficient irrigation systems for healthy landscapes.</p>
+			</li>
+		</ul>
+	</section>
+	<section class="max-w-3xl mx-auto mb-8">
+		<h2 class="text-xl font-bold mb-4 text-green-800">Blog</h2>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+			<a href="/blog.html" class="block bg-white rounded-lg shadow p-4 hover:bg-green-50 transition">
+				<h3 class="font-semibold text-lg">Latest Posts</h3>
+				<p class="text-sm text-gray-600">Tips, news, and updates from ArborPro.</p>
+			</a>
+		</div>
+	</section>
+	<footer class="text-center py-6 text-gray-500 text-sm">
+		&copy; 2025 ArborPro Tree Services. All rights reserved.
+	</footer>
+</body>
+</html>
