@@ -983,6 +983,10 @@ video {
   max-width: none;
 }
 
+.max-w-4xl {
+  max-width: 56rem;
+}
+
 .flex-shrink {
   flex-shrink: 1;
 }
