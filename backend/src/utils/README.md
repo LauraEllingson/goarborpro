@@ -1,0 +1,1 @@
+Utilities folder placeholder. The main entry point is `src/index.js`. Add helper utilities here if needed.

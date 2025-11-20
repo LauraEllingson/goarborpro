@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pruning for Health — ARBORPRO</title>
+  <link rel="stylesheet" href="/dist/styles.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-white shadow site-header masthead">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/index.html" class="flex items-center space-x-3">
+  <span class="text-2xl font-bold text-green-700">ARBORPRO</span>
+        <span class="hidden sm:inline text-sm text-gray-600">News · Tips · Case Studies</span>
+      </a>
+
+      <nav class="hidden md:flex space-x-6 items-center" aria-label="Primary">
+        <a href="/index.html" class="text-gray-700 hover:text-green-600">Home</a>
+        <a href="/blog.html" class="text-gray-700 hover:text-green-600">Blog</a>
+        <a href="#contact" class="text-gray-700 hover:text-green-600">Contact</a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <a href="tel:555-123-4567" class="hidden sm:inline-block bg-green-600 text-white px-3 py-1 rounded">Call (555) 123-4567</a>
+        <button id="mobileMenuBtn" aria-expanded="false" class="md:hidden p-2 rounded text-gray-700 hover:bg-gray-100" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+      <div class="px-4 py-3 flex flex-col space-y-2">
+        <a href="/index.html" class="py-2 border-b">Home</a>
+        <a href="/blog.html" class="py-2 border-b">Blog</a>
+        <a href="#contact" class="py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8">
+    <article class="bg-white shadow-md rounded p-6">
+      <header class="mb-6">
+        <p class="text-green-600 font-semibold">Tree Care</p>
+        <h1 class="text-3xl font-bold">Pruning for Health: When and How</h1>
+  <p class="text-sm text-gray-500">By ARBORPRO Team · Nov 10, 2025 · 5 min read</p>
+      </header>
+
+      <figure class="mb-6">
+        <img class="w-full h-64 object-cover rounded" src="/assets/images/landscape-detail.jpg" alt="Planting bed detail">
+  <figcaption class="text-sm text-gray-500 mt-2">Planting and bed detail — photo credit: ARBORPRO</figcaption>
+      </figure>
+
+      <div class="prose max-w-none">
+        <p>Pruning is a vital part of tree care that helps maintain structure, safety, and aesthetic value. In this guide we cover the right timing, common cuts, and how to avoid common mistakes that can harm a tree long-term.</p>
+
+        <blockquote class="border-l-4 border-green-500 pl-4 italic">"Correct pruning protects tree health and reduces long-term maintenance."</blockquote>
+
+        <h2>When to prune</h2>
+        <p>The best time to prune most trees is during dormancy, but certain species and conditions require different timing. Always evaluate species-specific needs.</p>
+
+        <h2>How to prune safely</h2>
+        <p>Use sharp, clean tools, make proper branch collar cuts, and never leave large stubs. For removals, consult a certified arborist.</p>
+
+        <h2>Aftercare</h2>
+        <p>Mulch lightly at the root flare, avoid piling soil against the trunk, and monitor for signs of stress or disease.</p>
+      </div>
+
+      <div class="like-section mt-8">
+        <button id="likeBtn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">❤️ Like</button>
+        <span id="likeCount" class="ml-4 font-bold"></span>
+      </div>
+
+      <div class="comment-section mt-8">
+        <h3 class="text-xl font-bold mb-4">Comments</h3>
+        <ul id="commentList" class="space-y-4"></ul>
+        <form id="commentForm" class="mt-4">
+          <input type="text" id="commentName" placeholder="Your name" required class="w-full border rounded p-2 mb-4">
+          <textarea id="commentBody" placeholder="Your comment" required class="w-full border rounded p-2 mb-4"></textarea>
+          <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Submit</button>
+        </form>
+      </div>
+
+      <nav class="mt-8">
+        <a href="/blog.html" class="text-green-600 hover:underline">← Back to blog</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="bg-green-700 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+  <p>&copy; 2025 ARBORPRO.</p>
+    </div>
+  </footer>
+
+  <script>
+    const articleId = 'post1'; // Unique ID for this article
+
+    // Fetch and display like count
+    function fetchLikes() {
+      fetch(`/api/likes/${articleId}`)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('likeCount').textContent = `${data.count} likes`;
+        });
+    }
+
+    // Increment like count
+    document.getElementById('likeBtn').addEventListener('click', () => {
+      fetch(`/api/likes/${articleId}`, { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('likeCount').textContent = `${data.count} likes`;
+          document.getElementById('likeBtn').disabled = true;
+          document.getElementById('likeBtn').textContent = '❤️ Liked';
+        });
+    });
+
+    // Fetch and display comments
+    function fetchComments() {
+      fetch(`/api/comments/${articleId}`)
+        .then(response => response.json())
+        .then(comments => {
+          const commentList = document.getElementById('commentList');
+          commentList.innerHTML = '';
+          comments.forEach(comment => {
+            const li = document.createElement('li');
+            li.textContent = `${comment.name}: ${comment.body}`;
+            commentList.appendChild(li);
+          });
+        });
+    }
+
+    // Submit a new comment
+    document.getElementById('commentForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = document.getElementById('commentName').value;
+      const body = document.getElementById('commentBody').value;
+
+      fetch(`/api/comments/${articleId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, body })
+      })
+        .then(response => response.json())
+        .then(() => {
+          document.getElementById('commentForm').reset();
+          fetchComments();
+        });
+    });
+
+    // Initialize
+    fetchLikes();
+    fetchComments();
+  </script>
+</body>
+</html>

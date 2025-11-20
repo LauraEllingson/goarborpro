@@ -1,0 +1,21 @@
+/* Tailwind entry - this file is the input for the Tailwind build.
+   It intentionally lives alongside your site files so Tailwind can scan them
+   for used classes. Keep your existing `styles.css` for now — we'll load
+   the generated `dist/tailwind.css` alongside or instead of that file.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Example small component layer - uses the `tw-` prefix so it keeps working when prefix is enabled */
+@layer components {
+  .btn {
+    /* note: when prefix is set to `tw-`, utility classes must be referenced with that prefix in @apply */
+    @apply tw-inline-block tw-px-4 tw-py-2 tw-rounded tw-bg-green-700 tw-text-white;
+  }
+
+  .btn:hover {
+    @apply tw-bg-green-800;
+  }
+}

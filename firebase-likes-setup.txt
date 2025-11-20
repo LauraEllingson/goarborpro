@@ -1,0 +1,18 @@
+Firebase Likes Setup Instructions
+
+1. Go to https://console.firebase.google.com/ and create a new project (or use an existing one).
+2. In your Firebase project, click 'Firestore Database' and create a database in test mode.
+3. Click the gear icon > Project settings > 'General' tab. Scroll down to 'Your apps' and click the web icon (</>).
+4. Register your app and copy the Firebase config object.
+5. In your HTML file, add the Firebase CDN scripts and your config object.
+6. Use the provided JS code to read/write like counts for each article.
+
+Disqus Comments Setup Instructions
+
+1. Go to https://disqus.com/ and sign up for a free account.
+2. Create a new site and get your Disqus shortname.
+3. Add the Disqus embed code to your article pages where you want comments to appear.
+
+Next steps:
+- I will add the Firebase and Disqus code to `posts/post1.html` as an example.
+- You can repeat for other articles as needed.
