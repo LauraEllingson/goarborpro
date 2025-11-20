@@ -6,7 +6,7 @@
 	<title>ArborPro Tree Services</title>
 	<link href="/dist/styles.css" rel="stylesheet">
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gray-50 text-gray-900 px-2 sm:px-4">
 	<nav class="bg-white shadow mb-4">
 			<div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
 				<a href="/" class="text-green-700 font-extrabold text-2xl tracking-tight">ARBORPRO</a>
@@ -61,7 +61,10 @@
 			const images = document.querySelectorAll('#carousel-images img');
 			let current = 0;
 			function show(idx) {
-				images.forEach((img, i) => img.classList.toggle('hidden', i !== idx));
+				images.forEach((img, i) => {
+					img.classList.toggle('hidden', i !== idx);
+					img.style.display = i === idx ? 'block' : 'none';
+				});
 			}
 			document.getElementById('prev').onclick = () => {
 				current = (current - 1 + images.length) % images.length;
@@ -72,6 +75,11 @@
 				show(current);
 			};
 			show(current);
+			// Auto-advance every 4 seconds
+			setInterval(() => {
+				current = (current + 1) % images.length;
+				show(current);
+			}, 4000);
 		</script>
 	</section>
 	<section class="max-w-3xl mx-auto mb-8">
