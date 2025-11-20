@@ -6,113 +6,207 @@
 	<title>ArborPro Tree Services</title>
 	<link href="/dist/styles.css" rel="stylesheet">
 </head>
-<body class="bg-gray-50 text-gray-900 px-2 sm:px-4">
-	<nav class="bg-white shadow mb-4">
-			<div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-				<a href="/" class="text-green-700 font-extrabold text-2xl tracking-tight">ARBORPRO</a>
-				<button id="nav-toggle" class="md:hidden text-gray-700 focus:outline-none" aria-label="Open menu">
-					<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-				</button>
-				<ul id="nav-menu" class="hidden md:flex space-x-6 text-gray-700 font-semibold">
-					<li><a href="/" class="hover:text-green-600">Home</a></li>
-					<li><a href="/blog.html" class="hover:text-green-600">Blog</a></li>
-					<li><a href="#services" class="hover:text-green-600">Services</a></li>
-					<li><a href="#contact" class="hover:text-green-600">Contact</a></li>
-				</ul>
-			</div>
-		</nav>
-		<script>
-			// Hamburger menu toggle
-			const navToggle = document.getElementById('nav-toggle');
-			const navMenu = document.getElementById('nav-menu');
-			navToggle && navToggle.addEventListener('click', () => {
-				navMenu.classList.toggle('hidden');
-				navMenu.classList.toggle('flex');
-				navMenu.classList.toggle('flex-col');
-				navMenu.classList.toggle('absolute');
-				navMenu.classList.toggle('top-16');
-				navMenu.classList.toggle('left-0');
-				navMenu.classList.toggle('w-full');
-				navMenu.classList.toggle('bg-white');
-				navMenu.classList.toggle('shadow-lg');
-				navMenu.classList.toggle('z-50');
-				navMenu.classList.toggle('space-y-4');
-				navMenu.classList.toggle('space-x-0');
-				navMenu.classList.toggle('p-6');
-			});
-		</script>
-	</nav>
-	<header class="flex flex-col items-center py-8">
-		<h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-green-700">ARBORPRO</h1>
-	</header>
-	<section class="w-full max-w-3xl mx-auto mb-8">
-		<!-- Hero Carousel -->
-			<div class="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-				<div class="absolute inset-0 flex transition-all duration-700" id="carousel-images">
-					<img src="/assets/images/hero.jpg" alt="Tree Service" class="w-full h-full object-cover" style="display:block;">
-					<img src="/assets/images/landscape.jpg" alt="Landscaping" class="w-full h-full object-cover hidden">
-					<img src="/assets/images/irrigation.jpg" alt="Irrigation" class="w-full h-full object-cover hidden">
-				</div>
-				<button id="prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-opacity-100">&#8592;</button>
-				<button id="next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-opacity-100">&#8594;</button>
-			</div>
-		<script>
-			// Simple JS for carousel
-			const images = document.querySelectorAll('#carousel-images img');
-			let current = 0;
-			function show(idx) {
-				images.forEach((img, i) => {
-					img.classList.toggle('hidden', i !== idx);
-					img.style.display = i === idx ? 'block' : 'none';
-				});
-			}
-			document.getElementById('prev').onclick = () => {
-				current = (current - 1 + images.length) % images.length;
-				show(current);
-			};
-			document.getElementById('next').onclick = () => {
-				current = (current + 1) % images.length;
-				show(current);
-			};
-			show(current);
-			// Auto-advance every 4 seconds
-			setInterval(() => {
-				current = (current + 1) % images.length;
-				show(current);
-			}, 4000);
-		</script>
-	</section>
-	<section class="max-w-3xl mx-auto mb-8">
-		<h2 class="text-xl font-bold mb-4 text-green-800">Our Services</h2>
-		<ul class="grid grid-cols-1 md:grid-cols-3 gap-6">
-					<li class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
-						<img src="/assets/images/tree.svg" alt="Tree Service" class="w-20 h-20 mb-2 rounded-full object-cover">
-						<span class="font-semibold">Tree Services</span>
-						<p class="text-sm text-gray-600">Commercial & Residential tree trimming, removal, and care.</p>
-					</li>
-					<li class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
-						<img src="/assets/images/landscaping.svg" alt="Landscaping" class="w-20 h-20 mb-2 rounded-full object-cover">
-						<span class="font-semibold">Landscaping</span>
-						<p class="text-sm text-gray-600">Design, installation, and maintenance for beautiful outdoor spaces.</p>
-					</li>
-					<li class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
-						<img src="/assets/images/irrigation.svg" alt="Irrigation" class="w-20 h-20 mb-2 rounded-full object-cover">
-						<span class="font-semibold">Irrigation</span>
-						<p class="text-sm text-gray-600">Efficient irrigation systems for healthy landscapes.</p>
-					</li>
-		</ul>
-	</section>
-	<section class="max-w-3xl mx-auto mb-8">
-		<h2 class="text-xl font-bold mb-4 text-green-800">Blog</h2>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-			<a href="/blog.html" class="block bg-white rounded-lg shadow p-4 hover:bg-green-50 transition">
-				<h3 class="font-semibold text-lg">Latest Posts</h3>
-				<p class="text-sm text-gray-600">Tips, news, and updates from ArborPro.</p>
+<body class="bg-gradient-to-br from-green-50 via-white to-green-100 text-gray-900">
+	<!-- Navigation -->
+	<nav class="bg-white shadow-lg mb-8 sticky top-0 z-40">
+		<div class="w-full pl-4 md:pl-8 py-4 flex flex-row items-center justify-start">
+			<a href="/" class="flex items-center gap-2">
+				<img src="/assets/images/logo.svg" alt="ArborPro Logo" class="h-10 w-10">
+				<span class="text-green-700 font-extrabold text-3xl tracking-tight">ArborPro</span>
 			</a>
+			<button id="nav-toggle" class="md:hidden text-green-700 focus:outline-none" aria-label="Open menu">
+				<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+			</button>
+			<ul id="nav-menu" class="hidden md:flex space-x-8 text-green-800 font-semibold text-lg">
+				<li><a href="/" class="hover:text-green-600">Home</a></li>
+				<li><a href="/blog.html" class="hover:text-green-600">Blog</a></li>
+				<li><a href="#services" class="hover:text-green-600">Services</a></li>
+				<li><a href="#contact" class="hover:text-green-600">Contact</a></li>
+			</ul>
 		</div>
-	</section>
-	<footer class="text-center py-6 text-gray-500 text-sm">
-		&copy; 2025 ArborPro Tree Services. All rights reserved.
-	</footer>
-</body>
-</html>
+	</nav>
+	<script>
+		// Hamburger menu toggle
+		const navToggle = document.getElementById('nav-toggle');
+		const navMenu = document.getElementById('nav-menu');
+		navToggle && navToggle.addEventListener('click', () => {
+			navMenu.classList.toggle('hidden');
+			navMenu.classList.toggle('flex');
+			navMenu.classList.toggle('flex-col');
+			navMenu.classList.toggle('absolute');
+			navMenu.classList.toggle('top-20');
+			navMenu.classList.toggle('left-0');
+			navMenu.classList.toggle('w-full');
+			navMenu.classList.toggle('bg-white');
+			navMenu.classList.toggle('shadow-xl');
+			navMenu.classList.toggle('z-50');
+			navMenu.classList.toggle('space-y-6');
+			navMenu.classList.toggle('space-x-0');
+			navMenu.classList.toggle('p-8');
+		});
+	</script>
+				<!-- Hero Section -->
+
+					<section class="w-full relative h-[32rem] md:h-[36rem] flex items-center justify-center mb-12 overflow-hidden">
+												<div id="carousel-bg" class="absolute inset-0 w-full h-full transition-all duration-700">
+													<img src="/assets/images/hero.jpg" alt="Tree Service" class="absolute inset-0 w-full h-full object-cover" style="display:block;">
+													<img src="/assets/images/landscape.jpg" alt="Landscaping" class="absolute inset-0 w-full h-full object-cover hidden">
+													<img src="/assets/images/irrigation.jpg" alt="Irrigation" class="absolute inset-0 w-full h-full object-cover hidden">
+												</div>
+										<div class="absolute left-0 top-0 h-full w-2/3 pointer-events-none z-10" style="background: linear-gradient(to right, rgba(34,197,94,0.85) 0%, rgba(34,197,94,0.5) 40%, rgba(34,197,94,0.0) 100%);"></div>
+										<div class="absolute left-0 top-1/2 -translate-y-1/2 z-20 max-w-3xl w-full sm:w-2/3 pl-8 md:pl-16 py-10 flex flex-col items-start justify-center">
+											<h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl text-left">Tree, Landscape & Irrigation Experts</h1>
+											<p class="text-xl md:text-2xl text-white font-semibold mb-8 drop-shadow-lg">Professional care for healthy, beautiful properties.<br>Serving your community with safety, reliability, and pride.</p>
+											<a href="#contact" class="inline-block bg-gradient-to-r from-green-600 to-green-400 text-white font-bold px-8 py-4 rounded-full shadow-xl hover:bg-green-700 transition">Get a Free Quote</a>
+											<div class="flex justify-start gap-4 mt-10">
+												<button id="prev" class="bg-green-700 bg-opacity-80 text-white rounded-full p-4 shadow hover:bg-opacity-100">&#8592;</button>
+												<button id="next" class="bg-green-700 bg-opacity-80 text-white rounded-full p-4 shadow hover:bg-opacity-100">&#8594;</button>
+											</div>
+										</div>
+						<script>
+							// Carousel background logic
+							const bgImages = document.querySelectorAll('#carousel-bg img');
+							let bgCurrent = 0;
+							function showBg(idx) {
+								bgImages.forEach((img, i) => {
+									img.classList.toggle('hidden', i !== idx);
+									img.style.display = i === idx ? 'block' : 'none';
+								});
+							}
+							document.getElementById('prev').onclick = () => {
+								bgCurrent = (bgCurrent - 1 + bgImages.length) % bgImages.length;
+								showBg(bgCurrent);
+							};
+							document.getElementById('next').onclick = () => {
+								bgCurrent = (bgCurrent + 1) % bgImages.length;
+								showBg(bgCurrent);
+							};
+							showBg(bgCurrent);
+							// Auto-advance every 4 seconds
+							setInterval(() => {
+								bgCurrent = (bgCurrent + 1) % bgImages.length;
+								showBg(bgCurrent);
+							}, 4000);
+						</script>
+					</section>
+					<!-- Services Overview -->
+								<section id="services" class="max-w-6xl mx-auto px-6 pt-1 pb-2">
+							<h2 class="text-3xl font-bold text-green-800 mb-8 text-left">Our Services</h2>
+						<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+							<div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+							<img src="/assets/images/tree.svg" alt="Tree Service" class="w-24 h-24 mb-2 object-cover">
+								<span class="font-semibold text-lg mb-2">Tree Services</span>
+								<p class="text-base text-gray-600 text-center">Trimming, removal, and care for healthy trees and safe properties.</p>
+							</div>
+							<div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+							<img src="/assets/images/landscaping.svg" alt="Landscaping" class="w-24 h-24 mb-2 object-cover">
+								<span class="font-semibold text-lg mb-2">Landscaping</span>
+								<p class="text-base text-gray-600 text-center">Design, installation, and maintenance for beautiful outdoor spaces.</p>
+							</div>
+							<div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+							<img src="/assets/images/irrigation.svg" alt="Irrigation" class="w-24 h-24 mb-2 object-cover">
+								<span class="font-semibold text-lg mb-2">Irrigation</span>
+								<p class="text-base text-gray-600 text-center">Efficient irrigation systems for lush, sustainable landscapes.</p>
+							</div>
+						</div>
+					</section>
+					<!-- About/Trust Section removed to avoid duplicate info. -->
+				<!-- Blog Preview -->
+				<section class="max-w-6xl mx-auto px-6 py-12">
+					<h2 class="text-3xl font-bold text-green-800 mb-10 text-left">Latest Blog Posts</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+						<div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-green-600">
+							<h3 class="font-semibold text-xl mb-3 text-left">Pruning for Health: When and How</h3>
+							<p class="text-base text-gray-600 mb-3">Seasonal pruning preserves structure and reduces risk — here’s a straightforward guide to pruning cycles, safety considerations, and long-term care.</p>
+							<a href="/posts/post1.html" class="text-green-600 hover:underline font-semibold">Read More</a>
+						</div>
+						<div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-green-600">
+							<h3 class="font-semibold text-xl mb-3 text-left">Designing Low-Maintenance Landscapes</h3>
+							<p class="text-base text-gray-600 mb-3">Tips for creating beautiful, easy-care landscapes for commercial and residential properties.</p>
+							<a href="/posts/post2.html" class="text-green-600 hover:underline font-semibold">Read More</a>
+						</div>
+					</div>
+				</section>
+				<!-- Contact/CTA -->
+				<section id="contact" class="w-full bg-green-700 py-16 mt-12">
+					<div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 text-white">
+						<div>
+							<h2 class="text-3xl font-bold mb-4 text-left">Ready to transform your property?</h2>
+							<p class="mb-6 text-lg">Contact ArborPro today for a free consultation and quote.</p>
+							<a href="tel:555-123-4567" class="bg-white text-green-700 font-bold px-8 py-3 rounded-full shadow hover:bg-green-100 transition">Call (555) 123-4567</a>
+						</div>
+						<div>
+							<a href="mailto:info@arborpro.com" class="underline text-lg">info@arborpro.com</a>
+						</div>
+					</div>
+				</section>
+				<!-- Footer -->
+				<footer class="text-center py-8 text-green-900 text-base bg-white mt-12 shadow-inner">
+					&copy; 2025 ArborPro Tree Services. All rights reserved.
+				</footer>
+			</body>
+			</html>
+								setInterval(() => {
+									current = (current + 1) % images.length;
+									show(current);
+								}, 4000);
+							</script>
+						</section>
+						
+						<!-- About/Trust Section -->
+						<section class="container mx-auto px-4 py-8">
+							<div class="bg-white rounded shadow p-6 flex flex-col md:flex-row items-center md:items-start gap-8">
+								<div class="flex-1">
+									<h2 class="text-xl font-bold text-green-800 mb-2">Why Choose ArborPro?</h2>
+									<p class="text-gray-700 mb-4">Locally owned and operated, ArborPro brings decades of experience to every project. Our certified team is committed to safety, reliability, and customer satisfaction.</p>
+									<ul class="list-disc pl-5 text-gray-600">
+										<li>ISA Certified Arborists</li>
+										<li>Licensed & Insured</li>
+										<li>5-Star Client Reviews</li>
+									</ul>
+								</div>
+								<div class="flex-1 flex flex-col items-center">
+									<div class="flex space-x-2 mb-2">
+										<img src="/assets/images/tree.svg" alt="Tree" class="w-10 h-10">
+										<img src="/assets/images/landscaping.svg" alt="Landscaping" class="w-10 h-10">
+										<img src="/assets/images/irrigation.svg" alt="Irrigation" class="w-10 h-10">
+									</div>
+									<span class="text-green-700 font-bold">Trusted by 100+ property owners</span>
+								</div>
+							</div>
+						</section>
+						<!-- Blog Preview -->
+						<section class="container mx-auto px-4 py-8">
+							<h2 class="text-2xl font-bold text-green-800 mb-6">Latest Blog Posts</h2>
+							<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+								<div class="bg-white rounded shadow p-6">
+									<h3 class="font-semibold text-lg mb-2">Pruning for Health: When and How</h3>
+									<p class="text-sm text-gray-600 mb-2">Seasonal pruning preserves structure and reduces risk — here’s a straightforward guide to pruning cycles, safety considerations, and long-term care.</p>
+									<a href="/posts/post1.html" class="text-green-600 hover:underline">Read More</a>
+								</div>
+								<div class="bg-white rounded shadow p-6">
+									<h3 class="font-semibold text-lg mb-2">Designing Low-Maintenance Landscapes</h3>
+									<p class="text-sm text-gray-600 mb-2">Tips for creating beautiful, easy-care landscapes for commercial and residential properties.</p>
+									<a href="/posts/post2.html" class="text-green-600 hover:underline">Read More</a>
+								</div>
+							</div>
+						</section>
+						<!-- Contact/CTA -->
+						<section id="contact" class="container mx-auto px-4 py-8">
+							<div class="bg-green-700 rounded shadow p-8 text-white flex flex-col md:flex-row items-center justify-between">
+								<div class="mb-4 md:mb-0">
+									<h2 class="text-2xl font-bold mb-2">Ready to transform your property?</h2>
+									<p class="mb-4">Contact ArborPro today for a free consultation and quote.</p>
+									<a href="tel:555-123-4567" class="bg-white text-green-700 font-bold px-6 py-2 rounded shadow hover:bg-gray-100 transition">Call (555) 123-4567</a>
+								</div>
+								<div>
+									<a href="mailto:info@arborpro.com" class="underline">info@arborpro.com</a>
+								</div>
+							</div>
+						</section>
+						<!-- Footer -->
+						<footer class="text-center py-6 text-gray-500 text-sm">
+							&copy; 2025 ArborPro Tree Services. All rights reserved.
+						</footer>
+					</body>
+					</html>
